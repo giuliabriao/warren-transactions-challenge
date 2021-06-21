@@ -1,0 +1,71 @@
+.header{
+    grid-area: header;
+    display: grid;
+    /* grid-template-columns: auto auto auto auto; */
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+    "navbar"
+    "text";
+    background-color: #e02b57;
+    height: 33%;
+}
+
+.navbar{
+    grid-area: navbar;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+}
+
+.logo{
+    width: 110px;
+    height: 35px;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+    font-family: "Source Sans Pro", Helvetica, Arial, Sans-Serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.link:hover{
+    border-radius: 100px;
+    padding: 7px 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.signUpLink{
+    background-color: #2E2D33;
+    border-radius: 100px;
+    padding: 7px 15px;
+}
+
+.signUpLink:hover{
+    font-size: 16px;
+}
+
+.textSection{
+    width: 40vw;
+    margin: 7rem;
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+.textSection h1{
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 1rem;
+}
+
+.textSection p{
+    font-family: "Source Sans Pro", Helvetica, Arial, Sans-Serif;
+    color: white;
+    font-size: 30px;
+
+}
