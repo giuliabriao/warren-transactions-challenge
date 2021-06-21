@@ -1,0 +1,29 @@
+.container{
+    grid-area: content;
+    display: grid;
+    grid-template-areas: 
+    "";
+}
+
+.searchingContainer{
+    background-color: #ebecf3;
+    align-self: center;
+}
+
+.searchIcon{
+    color: white;
+    font-size: 30px;
+}
+
+.table{
+    width: 80%;
+    font-family: "Source Sans Pro", Helvetica, Arial, Sans-Serif;
+    justify-self: center;
+    margin: 3rem 0;
+}
+
+td, th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;    
+}
