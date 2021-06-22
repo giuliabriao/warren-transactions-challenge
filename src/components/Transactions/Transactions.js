@@ -5,27 +5,49 @@ import api from '../../api'
 
 function Search() {
 
-    const [ data, setData ] = useState([])
-    const [ query, setQuery ] = useState('')
+    const [transactions, setTransactions] = useState([])
+    const [query, setQuery] = useState('')
 
     useEffect(() => {
 
-        async function fetchData() {
+        async function fetchTransactions() {
             const response = await api.get('')
-            setData(response.data)
+            setTransactions(response.data)
         }
 
-        fetchData();
+        fetchTransactions();
     }, [query])
 
-    console.log(data)
+    const statusName = (trx) => {
+        if (trx.status == 'created') {
+
+        }
+    }
+
+    // const handleClick = (trx) => {
+    //     console.log(setTransactions(trx))
+    // }
+
+    console.log(transactions)
 
     return (
         <div className={styles.container}>
-            <section className={styles.searchingContainer}>
-                <input value={query} placeholder="Pesquise pelo título" onChange={(event) => setQuery(event.target.value)}/>
-                <button><FaSearch className={styles.searchIcon} /></button>
-            </section>
+            <div className={styles.searchAndFilterContainer}>
+                <div className={styles.searchingContainer}>
+                    <input value={query} placeholder="Pesquise pelo título" onChange={(event) => setQuery(event.target.value)} />
+                    <button><FaSearch className={styles.searchIcon} /></button>
+                </div>
+                <div className={styles.filterContainer}>
+                    <select>
+                        <option selected disabled>Status</option>
+                        <option>Solicitada</option>
+                        <option>Processando</option>
+                        <option>Concluída</option>
+                    </select>
+
+                </div>
+            </div>
+
 
             <table className={styles.table}>
                 <thead>
@@ -37,8 +59,11 @@ function Search() {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map( transaction => (
-                        <tr key={transaction.id}>
+                    {transactions.map(transaction => (
+                        <tr
+                            className={styles.trxRow}
+                            onClick={() => console.log(transaction)}
+                            key={transaction.id}>
                             <td>{transaction.title}</td>
                             <td>{transaction.description}</td>
                             <td>{transaction.status}</td>

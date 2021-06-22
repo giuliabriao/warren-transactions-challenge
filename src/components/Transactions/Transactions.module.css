@@ -2,28 +2,78 @@
     grid-area: content;
     display: grid;
     grid-template-areas: 
-    "";
+    "searching"
+    "table";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: auto;
+}
+
+.searchAndFilterContainer{
+    grid-area: searching;
+    display: grid;
+    grid-template-areas: 
+    "search filter";
+    background-color: #ebecf3;
+    justify-content: space-around;
+    justify-self: center;
+    align-items: center;
+    margin: 1rem;
+    width: 45vw;
+    height: 8vh;
+    border-radius: 10px;
 }
 
 .searchingContainer{
-    background-color: #ebecf3;
-    align-self: center;
+    grid-area: search;
+    align-items: center;
+}
+
+.searchingContainer input{
+    border-radius: 10px;
+    padding: 0.5rem;
+    border-color: lightgray;
+}
+
+.searchingContainer button{
+    border: none;
+    background-color: transparent;
+    width: max-content;
 }
 
 .searchIcon{
-    color: white;
-    font-size: 30px;
+    color: #1C1B1F;
+    font-size: 25px;
+    vertical-align: middle;
+}
+
+.filterContainer{
+    grid-area: filter;
+}
+
+.filterContainer select{
+    height: 5vh;
+    border-radius: 10px;
 }
 
 .table{
+    grid-area: table;
     width: 80%;
     font-family: "Source Sans Pro", Helvetica, Arial, Sans-Serif;
     justify-self: center;
     margin: 3rem 0;
 }
 
+th{
+    font-weight: 700;
+}
+
 td, th{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;    
+}
+
+.trxRow:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.041);
 }
