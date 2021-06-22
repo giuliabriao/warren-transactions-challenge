@@ -2,30 +2,40 @@ import React, { useState, useEffect } from 'react'
 import styles from './Transactions.module.css'
 import { FaSearch } from 'react-icons/fa';
 import api from '../../api'
+import Modal from '../Modal/Modal';
 
 function Search() {
-    
+
+    const [isModalVisible, setIsModalVisible] = useState(false);
     const [transactions, setTransactions] = useState([])
+    const [selectedTransaction, setSelectedTransaction] = useState([])
     const [filterData, setFilterData] = useState([])
     const [query, setQuery] = useState('')
-    
+
+    const handleModal = () => {
+        setIsModalVisible(!isModalVisible)
+    }
+
+    const handleClick = (trx) => {
+        setSelectedTransaction(trx)
+    }
+
     async function fetchTransactions() {
         const response = await api.get('')
-        return setTransactions(response.data)
+        setTransactions(response.data)
+        setFilterData(response.data)
     }
 
     useEffect(() => {
         fetchTransactions();
     }, [query])
 
-
-    const dictionary = {
-        "created": "Solicitada",
-        "processing": "Processando",
-        "processed": "Concluída"
-    }
-
     const translateStatus = (trx) => {
+        const dictionary = {
+            "created": "Solicitada",
+            "processing": "Processando",
+            "processed": "Concluída"
+        }
         return dictionary[trx.status]
     }
 
@@ -35,7 +45,7 @@ function Search() {
     }
 
     const filter = (event) => {
-        const statusFiltering = transactions.filter(trx => dictionary[trx.status] === event.target.value)
+        const statusFiltering = filterData.filter(trx => trx.status === event.target.value)
         setTransactions(statusFiltering)
     }
 
@@ -49,9 +59,9 @@ function Search() {
                 <div className={styles.filterContainer}>
                     <select onChange={filter}>
                         <option selected disabled>Status</option>
-                        <option>Solicitada</option>
-                        <option>Processando</option>
-                        <option>Concluída</option>
+                        <option value="created">Solicitada</option>
+                        <option value="processing">Processando</option>
+                        <option value="processed">Concluída</option>
                     </select>
                 </div>
             </div>
@@ -71,8 +81,12 @@ function Search() {
                     {transactions.map(transaction => (
                         <tr
                             className={styles.trxRow}
-                            onClick={() => console.log(transaction)}
-                            key={transaction.id}>
+                            onClick={() => {
+                                handleModal(transaction)
+                                handleClick(transaction)
+                            }}
+                            key={transaction.id}
+                        >
 
                             <td>{transaction.title}</td>
                             <td>{transaction.description}</td>
@@ -82,6 +96,19 @@ function Search() {
                     ))}
                 </tbody>
             </table>
+
+            {isModalVisible ?
+                <Modal handleModal={handleModal}
+
+                    transactionTitle={selectedTransaction.title}
+                    from={selectedTransaction.from}
+                    to={selectedTransaction.to}
+                    amount={selectedTransaction.amount}
+                    status={selectedTransaction.status}
+                />
+                : null
+            }
+
         </div>
     )
 }
