@@ -1,10 +1,11 @@
 .container{
     grid-area: content;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
     "searching"
+    "reset"
     "table";
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr 0.5fr auto;
     grid-template-columns: auto;
 }
 
@@ -17,7 +18,7 @@
     justify-content: space-around;
     justify-self: center;
     align-items: center;
-    margin: 1rem;
+    margin: 1rem 1rem 0 1rem;
     width: 45vw;
     height: 8vh;
     border-radius: 10px;
@@ -53,6 +54,18 @@
 .filterContainer select{
     height: 5vh;
     border-radius: 10px;
+}
+
+.resetButton{
+    grid-area: reset;
+    border: none;
+    background-color: transparent;
+    width: max-content;
+    font-family: "Source Sans Pro", Helvetica, Arial, Sans-Serif;
+    font-weight: 600;
+    justify-self: center;
+    height: max-content;
+    font-size: 15px;
 }
 
 .table{
