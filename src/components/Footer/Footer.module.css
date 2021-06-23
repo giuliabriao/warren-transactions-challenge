@@ -1,0 +1,23 @@
+.footer{
+    display: flex;
+    grid-area: footer;
+    background-color: #2E2D33;
+    justify-content: center;
+    height: 10vh;
+    font-family: "Source Sans Pro", Helvetica, Arial, Sans-Serif;
+}
+
+.pFooter{
+    color: whitesmoke;
+    font-size: 15px;
+    margin: 10px;
+    align-self: center;
+}
+
+.aFooter{
+    color: whitesmoke;
+}
+
+.aFooter:hover{
+    color:#e02b57;
+}
