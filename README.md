@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# <strong><p style="text-align: center">Transações Warren</p></strong>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Esta aplicação permite que você tenha acesso às suas principais transações feitas na Warren 
+<br>
 
-## Available Scripts
+### 🔎 <strong>Como rodar</strong>
 
-In the project directory, you can run:
+Primeiramente, você deve clonar este repositório na sua máquina, com o seguinte comando no Git Bash ou terminal de sua escolha:
 
-### `npm start`
+```shell
+git clone https://github.com/giuliabriao/warren-transactions-challenge.git
+```
+Agora, instale as dependências do seu projeto escrevendo:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```shell
+npm install
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🔎 <strong>Acessando a aplicação</strong>
 
-### `npm test`
+Escreva `npm start` no seu terminal e ele irá rodar sua aplicação localmente, permitindo que você interaja com os componentes na tela.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📌 <strong>Sobre o desafio</strong>
 
-### `npm run build`
+Este desafio consistia em implementar uma tela de lista de transações apresentando os principais dados relacionado a cada uma delas e ao clicar em uma transação será exibido um modal contendo os detalhes desta transação. O desafio deverá conter as seguintes funcionalidades:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x] Lista de transações agrupada por data
+- [x] Filtro por título
+- [x] Filtro por status
+- [x] Modal contendo os detalhes da transação
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Escolhi usar o `create-react-app` para minimizar a configuração inicial e investir mais tempo mergulhando na própria lógica do React.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Foi disponibilizado um mock de dados para usar na aplicação e a partir dele pude coletar as informações essenciais para colocar na tela.
 
-### `npm run eject`
+`https://warren-transactions-api.herokuapp.com/api/transactions`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Busquei deixar o HTML mais semântico possível, além do design ser semelhante à página de Produtos da Warren, familiar aos olhos do cliente, com as cores referentes à identidade visual da empresa.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+É possível buscar pelo título da transação, filtrar pelo seu status e também resetar as filtragens para visualizar novamente todas as transações. O modal tem uma barra de progresso, se a transação está com status "Solicitada", "Processando" e "Concluída", porém como na API essa informação vêm em inglês, criei uma função para traduzi-la e assim ficar mais coerente com o a lingua portuguesa que é a predominante na aplicação. Além disso, o modal também mostra quem transferiu e para onde, além do valor referente a essa transação. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ReactJS foi a biblioteca escolhida para este desafio por ser simples, rápido, escalável e poder criar componentes reutilizáveis. Utilizei CSS-modules para que os classNames fossem definidos localmente, evitando conflitos entre estilos no caso de quando declarado globalmente, o que torna mais organizada a estilização.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 🚀 <strong>Tecnologias</strong>
+Foram utilizadas as seguintes tecnologias para a construção do projeto
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [NodeJS](https://nodejs.org/en/)
+- [ReactJS](https://pt-br.reactjs.org/docs/getting-started.html)
+- [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
